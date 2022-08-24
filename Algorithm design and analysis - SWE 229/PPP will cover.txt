@@ -1,0 +1,25 @@
+sieve - bitwise sieve, segmented sieve, linear sieve, divisor count, phi, sum of divisor
+modular inverse with power, with ex euclid
+Floyd Warshall
+Bellman Ford
+heapsort - heap
+counting sort, radix sort, bucket sort
+order statistics
+Hash Table
+Binary Search Tree
+Balance Binary Search Tree - Treap / AVL Tree
+DP - Matrix Chain Multiplication, Knapsack, CoinChange
+Greedy - task scheduling
+Max Flow - Ford Fulkerson
+String Matching - KMP, Rabin Karp(hashing)
+Suffix Array
+Strongly Connected Component
+CRT - ex euclid
+FFT *
+
+quicksort*
+DSU*
+MST*
+Dijkstra*
+DFS*
+BFS*
