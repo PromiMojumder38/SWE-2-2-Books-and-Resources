@@ -3,11 +3,10 @@
 using namespace std;
 
 #define ll long long
-const int n = 10e6;
+const int n = 9999999;
 ll i, j, k;
 vector<bool> is_prime(n+1, true);
-vector<ll>prime;
-vector<ll>ans(n+1, 0);
+set<ll>ans;
 
 void sieve()
 {
@@ -15,39 +14,44 @@ void sieve()
 	is_prime[2] = true;
 	for (i = 3; i * i <= n; i+=2) 
 	{
-	    if (is_prime[i] && (i == 2|| i % 2 == 1)) 
-		{ //checks odd only except 2
+	    if (is_prime[i]) 
+		{ 
 	        for (j = i * i; j <= n; j += 2*i) is_prime[j] = false;
 	    }
 	}
-	for(i = 0; i <= n; i++)  if(is_prime[i]) prime.push_back(i);
-	cout << "sz " << prime.size();
-	ans[2] = 1;
-	for(i = 0; i < prime.size(); i++)
-	{
-		int cnt = 0;
-		for(j = 1; j*j <= prime[i]; j++)
-		{
-			for(k = 1; k*k*k*k <= prime[i]; k++)
-			{
-				if(j*j + k*k*k*k > prime[i]) break;
-				else cnt++;
-			}
-		}
-		ans[prime[i]] = cnt;
-	}
-	//for(i = 0; i <= 10; i++) cout << ans[i] << endl;
+	//for (i = 0; i <= n; i ++) if(is_prime[i]) cout << i << endl;
+    for(j = 1; j*j <= n; j++)
+    {
+        for(k = 1; k*k*k*k <= n; k++)
+        {
+            ll temp = j*j + k*k*k*k ;
+            if(temp > n) break;
+            if(is_prime[temp] && (temp == 2 || temp % 2 == 1)) ans.insert(temp);
+        }
+    }
+	//for(auto i : ans) cout << i << endl;
 }
 
 int main()
 {
 	sieve();
 	int t;
-	cin >> t;
+	scanf("%d", &t);
 	while(t--)
 	{
 		int n;
-		cin >> n;
-		cout << ans[n] << endl;
+		scanf("%d", &n);
+		int cnt = 0;
+		for(auto i : ans) 
+		{
+		    if(i > n) break;
+		    cnt++;
+		}
+		printf("%d\n", cnt);
 	}
 }
+
+
+
+
+
