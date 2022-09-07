@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int n = 1.01866*10e7;
+const int n = 101865020;
 vector<char>ans;
 int i, j;
 vector<bool> is_prime(n+1, true);
